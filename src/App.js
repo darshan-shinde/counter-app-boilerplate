@@ -11,16 +11,17 @@ function App() {
   }
   const handleMinus = () => {
     if(count===0){
-      return
-     
+     return
     }
+
     setCount(count-1)
+    
   }
   
   return (
     <div className="App">
       <h2 data-testid="counter-value">{count}</h2>
-      <button data-testid="counter-decrement-button" onClick={handleMinus}>-1</button>
+      <button data-testid="counter-decrement-button" disabled={count===0 ? true : false} onClick={handleMinus} >-1</button>
       <button data-testid="counter-increment-button" onClick={handleAdd}>+1</button>
     </div>
   );
