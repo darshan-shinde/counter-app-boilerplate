@@ -1,13 +1,26 @@
 import "./App.css";
-import 
+import {useState} from "react"
 
 function App() {
   const [count,setCount] = useState(0)
+  const [show,setShow] = useState(false)
+
+  const handleAdd = () => {
+    setCount(count+1)
+  }
+  const handleMinus = () => {
+    if(count===0){
+      return
+      setShow(true)
+    }
+    setCount(count-1)
+  }
+  
   return (
     <div className="App">
-      <h2 data-testid="counter-value">X</h2>
-      <button data-testid="counter-decrement-button"></button>
-      <button data-testid="counter-increment-button"></button>
+      <h2 data-testid="counter-value">{count}</h2>
+      <button data-testid="counter-decrement-button" onClick={handleMinus} disabled={show}>-1</button>
+      <button data-testid="counter-increment-button" onClick={handleAdd}>+1</button>
     </div>
   );
 }
