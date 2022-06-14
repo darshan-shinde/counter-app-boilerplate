@@ -1,9 +1,10 @@
 import "./App.css";
 import {useState} from "react"
+import { isDisabled } from "@testing-library/user-event/dist/utils";
 
 function App() {
   const [count,setCount] = useState(0)
-  const [show,setShow] = useState(false)
+  
 
   const handleAdd = () => {
     setCount(count+1)
@@ -11,7 +12,7 @@ function App() {
   const handleMinus = () => {
     if(count===0){
       return
-      setShow(true)
+     
     }
     setCount(count-1)
   }
@@ -19,7 +20,7 @@ function App() {
   return (
     <div className="App">
       <h2 data-testid="counter-value">{count}</h2>
-      <button data-testid="counter-decrement-button" onClick={handleMinus} disabled={show}>-1</button>
+      <button data-testid="counter-decrement-button" onClick={handleMinus}>-1</button>
       <button data-testid="counter-increment-button" onClick={handleAdd}>+1</button>
     </div>
   );
