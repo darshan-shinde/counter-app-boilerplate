@@ -10,12 +10,7 @@ function App() {
     setCount(count+1)
   }
   const handleMinus = () => {
-    if(count===0){
-     return
-    }
-
     setCount(count-1)
-    
   }
   
   return (
